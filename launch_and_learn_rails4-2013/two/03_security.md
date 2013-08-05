@@ -1,17 +1,17 @@
-!SLIDE bullets incremental
-# Turn into gems #
+!SLIDE
+# Security
 
-* activerecord-deprecated_finders (still included in rails 4.0)
-* Page and action caching
-* ActiveRecord Observers
-* ActiveRecord::SessionStore
-* url_for :controller / :action
-* ActiveResource
+!SLIDE
+# match do not catch all
+    @@@ ruby
+    # Rails 3
+    match 'users/new' => 'users#new'
 
-!SLIDE bullets
-# Security #
+    # Rails 4
+    match 'users/new' => 'users#new', via: [:get]
+    get 'users/new' => 'users#new'
 
-* match do not catch all
+!SLIDE
 * html entities escaped by default
 * new security headers
 * Google security changes
@@ -19,7 +19,7 @@
 !SLIDE bullets
 # Minor changes #
 
-* test/models, test/controllers
+* New Default Test Locations test/models, test/controllers
 * Your app's executables now live in the bin
 * multiple routes file (#draw method)
 * Thread safe on by default
@@ -33,10 +33,3 @@
 
 !SLIDE bullets
 # Feature #
-
-!SLIDE bullets
-# Links #
-
-* http://guides.rubyonrails.org/4_0_release_notes.html
-* http://goo.gl/Ta6vQ
-* http://tenderlovemaking.com/2012/07/30/is-it-live.html
