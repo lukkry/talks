@@ -1,4 +1,4 @@
-Title of document
+Channels in Go
 Subtitle of document
 15:04 2 Jan 2006
 
@@ -8,6 +8,86 @@ joe@example.com
 http://url/
 @twitter_name
 
-* the first slide
+* Channels
+Channels are a typed conduit through which you can send and receive values.
 
-.play hello.go
+.code syntax_overview.go /^\/\/.*Create/,/bool/
+.code syntax_overview.go /^\/\/.*Send/,/true$/
+.code syntax_overview.go /^\/\/ Receive/,/ch$/
+
+* Channels
+Sends and receives block until the other side is ready.
+
+Allows goroutines to synchronize without explicit locks or condition variables.
+
+It's safe to share channels across routines.
+
+* Channels
+
+.code hello_world.go /^func hello/,/^}/
+.play hello_world.go /^func main/,/^}/
+
+* Channels
+.code hello_world_channels.go /^func hello/,/^}/
+.play hello_world_channels.go /^func main/,/^}/
+
+* Synchronization
+
+Channels can be used for communication and synchronization.
+
+* Buffered Channels
+
+.code buffered_channels_syntax_overview.go /^\/\/.*Create/,/100\)$/
+
+* Buffered Channels
+
+.play buffered_channels.go /^func main/,/^}/
+
+* Buffered Channels
+
+Buffered channels don't synchronize.
+
+* Generator: function that returns a channel
+
+.code generator.go /^func hello/,/^}/
+.play generator.go /^func main/,/^}/
+
+* Generator: function that returns a channel
+
+.code joe_ann.go /^func hello/,/^}/
+.play joe_ann.go /^func main/,/^}/
+
+* Fan in
+
+.code fan_in.go /^func fanIn/,/^}/
+.play fan_in.go /^func main/,/^}/
+
+* The Go approach
+
+Don't communicate by sharing memory, share memory by communicating.
+
+* Select
+
+.code select.go
+
+* Select
+The select statement lets a goroutine wait on multiple communication operations.
+
+A select blocks until one of its cases can run, then it executes that case. It chooses one at random if multiple are ready.
+
+You can't depend on the order.
+
+* Timeout using select
+
+.play select_timeout.go /^func main/,/^}/
+
+* Real world example
+
+sequential
+concurrent
+concurrent + timeout
+replicas
+
+* the last
+Go Concurrency Patterns - http://www.youtube.com/watch?v=f6kdp27TYZs
+http://tour.golang.org/
