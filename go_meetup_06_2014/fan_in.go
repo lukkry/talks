@@ -9,8 +9,8 @@ import (
 func hello(name string) chan string{
 	c := make(chan string)
 	go func() {
-		for {
-			c <- fmt.Sprintf("%v: Hello world.\n", name)
+		for i := 0; ; i++{
+			c <- fmt.Sprintf("%v: Hello %v.\n", name, i)
 			time.Sleep(time.Duration(rand.Intn(500)) * time.Millisecond)
 		}
 	}()

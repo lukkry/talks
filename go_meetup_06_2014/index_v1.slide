@@ -8,28 +8,42 @@ joe@example.com
 http://url/
 @twitter_name
 
+* Hello function
+
+.code simple_hello.go /^func hello/,/^}/
+.play simple_hello.go /^func main/,/^}/
+
+* Hello function with a goroutine.
+
+.code hello_without_sleep.go /^func hello/,/^}/
+.play hello_without_sleep.go /^func main/,/^}/
+
+* Hello function with a goroutine.
+
+.code hello_world_without_channels.go /^func hello/,/^}/
+.play hello_world_without_channels.go /^func main/,/^}/
+
 * Channels
-Channels are a typed conduit through which you can send and receive values.
+A channel in Go provides a connection between two goroutines, allowing them to communicate.
 
 .code syntax_overview.go /^\/\/.*Create/,/bool/
 .code syntax_overview.go /^\/\/.*Send/,/true$/
 .code syntax_overview.go /^\/\/ Receive/,/ch$/
 
-* Channels
+* Hello function with a channel
+.code hello_world_channels.go /^func hello/,/^}/
+.play hello_world_channels.go /^func main/,/^}/
+
+* Synchronization
 Sends and receives block until the other side is ready.
+
+<-c, it waits for a value to be sent.
+
+c <- "Hello", it waits for a receiver to be ready.
 
 Allows goroutines to synchronize without explicit locks or condition variables.
 
 It's safe to share channels across routines.
-
-* Channels
-
-.code hello_world.go /^func hello/,/^}/
-.play hello_world.go /^func main/,/^}/
-
-* Channels
-.code hello_world_channels.go /^func hello/,/^}/
-.play hello_world_channels.go /^func main/,/^}/
 
 * Synchronization
 
@@ -47,6 +61,10 @@ Channels can be used for communication and synchronization.
 
 Buffered channels don't synchronize.
 
+* The Go approach
+
+Don't communicate by sharing memory, share memory by communicating.
+
 * Generator: function that returns a channel
 
 .code generator.go /^func hello/,/^}/
@@ -54,17 +72,12 @@ Buffered channels don't synchronize.
 
 * Generator: function that returns a channel
 
-.code joe_ann.go /^func hello/,/^}/
 .play joe_ann.go /^func main/,/^}/
 
-* Fan in
+* fan-in function
 
 .code fan_in.go /^func fanIn/,/^}/
 .play fan_in.go /^func main/,/^}/
-
-* The Go approach
-
-Don't communicate by sharing memory, share memory by communicating.
 
 * Select
 
