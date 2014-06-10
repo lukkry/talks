@@ -16,6 +16,7 @@ func main() {
 	c := make(chan string)
 	timeout := time.After(2 * time.Second)
 	go hello(c)
+	// select start OMIT
 	for {
 		select {
 		case s := <-c:
@@ -23,6 +24,10 @@ func main() {
 		case <-timeout:
 			fmt.Println("Timeout.")
 			return
+		default:
+			fmt.Println("Nope")
+			time.Sleep(100 * time.Millisecond)
 		}
 	}
+	// select end OMIT
 }

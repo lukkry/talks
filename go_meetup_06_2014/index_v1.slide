@@ -81,25 +81,35 @@ Don't communicate by sharing memory, share memory by communicating.
 
 * Select
 
+Is a control stucture for concurrency
+
+Like a switch but each case is a communication.
+
 .code select.go
 
-* Select
-The select statement lets a goroutine wait on multiple communication operations.
+* Select with a timeout
 
-A select blocks until one of its cases can run, then it executes that case. It chooses one at random if multiple are ready.
-
-You can't depend on the order.
-
-* Timeout using select
-
+.code select_timeout.go /^func hello/,/^}/
 .play select_timeout.go /^func main/,/^}/
 
-* Real world example
+* Select with a timeout and default
 
-sequential
-concurrent
-concurrent + timeout
-replicas
+.code select_timeout_default.go /^func hello/,/^}/
+.play select_timeout_default.go /start OMIT/,/ end OMIT//
+
+* Protecting state with goroutines
+
+.play stateful_goroutines.go /go/,/state OMIT//
+
+* Protecting state with goroutines
+
+.code stateful_goroutines.go /types start/,/types end//
+.code stateful_goroutines.go /channels start/,/channels end//
+
+* Protecting state with goroutines
+
+.code stateful_goroutines.go /read start/,/read end//
+.code stateful_goroutines.go /write start/,/write end//
 
 * the last
 Go Concurrency Patterns - http://www.youtube.com/watch?v=f6kdp27TYZs
