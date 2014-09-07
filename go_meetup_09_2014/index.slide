@@ -16,7 +16,7 @@ pre-commit
 Vim, Sublime, Atom
 
 * Configuration
-godotenv - https://github.com/joho/godotenv
+godotenv
 
 .code .env
 .play configuration.go /^func main/,/^}/
@@ -30,7 +30,7 @@ own packages
 * Dependency management
 - go get
 - _vendor dir
-- godep - https://github.com/tools/godep
+- godep
 
 * _vendor dir
 - copy file from the clone (or use git subtrees)
@@ -65,11 +65,13 @@ Command godep helps build packages reproducibly by fixing their dependencies.
 - build a binary
 .code maestro-build
 
-* Zero downtime restart
-manners
+* Graceful shutdown
+Manners allows you to shut your Go webserver down gracefully, without dropping any requests.
 
-* Q&A
+.code manners.go /^func main/,/true\n^}/
 
 * Links
 http://peter.bourgon.org/go-in-production/ - Go in production in Soundcloud
-https://code.google.com/p/go-wiki/wiki/CodeReviewComments - Common mistakes
+godep - https://github.com/braintree/manners
+manners - https://github.com/braintree/manners
+dotenv - https://github.com/braintree/manners
