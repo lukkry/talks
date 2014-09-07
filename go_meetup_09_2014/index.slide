@@ -5,27 +5,18 @@ Lukasz Krystkowiak
 Zendesk
 lukasz@zendesk.com
 
-* Introduction
-
-* Development environment
-Repo structure.
-
-* Formatting and style
-gofmt or goimports
-pre-commit
-Vim, Sublime, Atom
+* Intro
+What I've learned about writing and deploying Go applications in the last 4 months.
 
 * Configuration
-godotenv
+Extract configuration from the environment with `os.Getenv` and `godotenv`
 
 .code .env
 .play configuration.go /^func main/,/^}/
 
-* Testing
-travis
-
-* Import
-own packages
+* Internal packages
+.code internal-packages-maestro
+.code internal-packages
 
 * Dependency management
 - go get
@@ -33,7 +24,7 @@ own packages
 - godep
 
 * _vendor dir
-- copy file from the clone (or use git subtrees)
+- copy files from the clone (or use git subtrees)
 - go tool ignores it when doing e.g. go test ./...
 - keep it like GOPATH, e.g. _vendor/src/github.com/user/dep
 - prepend _vendor to an existing GOPATH
