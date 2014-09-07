@@ -1,0 +1,40 @@
+Go in production
+9 Sep 2014
+
+Lukasz Krystkowiak
+Zendesk
+lukasz@zendesk.com
+
+* Introduction
+
+* Development environment
+Repo structure.
+
+* Formatting and style
+gofmt or goimports
+pre-commit
+Vim, Sublime, Atom
+
+* Configuration
+godotenv - https://github.com/joho/godotenv
+
+.code .env
+.play configuration.go /^func main/,/^}/
+
+* Testing
+travis
+
+* Dependencies
+import own packages, godep
+
+* Building and deploying
+godep,
+
+* Zero downtime restart
+manners
+
+* Q&A
+
+* Links
+http://peter.bourgon.org/go-in-production/ - Go in production in Soundcloud
+https://code.google.com/p/go-wiki/wiki/CodeReviewComments - Common mistakes
