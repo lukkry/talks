@@ -1,0 +1,18 @@
+$ cat Godeps.json
+{
+	"ImportPath": "github.com/zendesk/maestro",
+	"GoVersion": "go1.3",
+	"Packages": [
+		"./..."
+	],
+	"Deps": [
+		{
+			"ImportPath": "github.com/joho/godotenv",
+			"Rev": "3c13a80fe13f26da8d7cf5b257bdfe54975b8043"
+		},
+		{
+			"ImportPath": "github.com/zendesk/go-httpclerk",
+			"Rev": "a5c6173915e320de625d9dc8deb8746b6f18da67"
+		}
+	]
+}

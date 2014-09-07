@@ -24,11 +24,46 @@ godotenv - https://github.com/joho/godotenv
 * Testing
 travis
 
-* Dependencies
-import own packages, godep
+* Import
+own packages
+
+* Dependency management
+- go get
+- _vendor dir
+- godep - https://github.com/tools/godep
+
+* _vendor dir
+- copy file from the clone (or use git subtrees)
+- go tool ignores it when doing e.g. go test ./...
+- keep it like GOPATH, e.g. _vendor/src/github.com/user/dep
+- prepend _vendor to an existing GOPATH
+
+* godep
+Command godep helps build packages reproducibly by fixing their dependencies.
+
+* godep save ./...
+- save a list of dependencies to the file Godeps/Godeps.json
+
+.code Godeps
+
+* godep save ./...
+- copy their source code into Godeps/_workspace
+.code tree
+
+* godep update
+- go get -u github.com/zendesk/go-httpclerk
+- godep update github.com/zendesk/go-httpclerk
 
 * Building and deploying
-godep,
+- build a binary on each application servers,
+- build a binary on a single server and make application servers to fetch it
+
+* Building and deploying
+- install godep
+.code godep-install
+
+- build a binary
+.code maestro-build
 
 * Zero downtime restart
 manners

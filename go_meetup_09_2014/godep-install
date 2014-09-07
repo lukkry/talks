@@ -1,0 +1,7 @@
+if [ ! -e $GOPATH/bin/godep ];
+then
+  echo "Installing godep...";
+  go get github.com/tools/godep;
+else
+  echo "godep found.";
+fi;
